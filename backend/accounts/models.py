@@ -28,7 +28,6 @@ class MyUserManager(BaseUserManager):
         user = self.create_user(
             email,
             password=password,
-            name=name,
             sex=sex,
             birthday=birthday,
             student_id=student_id,
@@ -54,7 +53,7 @@ class MyUser(AbstractBaseUser):
         ('남', '남자'),
         ('여', '여자'),
     ]
-    sex = models.CharField(verbose_name='성별', max_length=10, choices=SEX_CHOICES)
+    sex = models.CharField(verbose_name='성별', max_length=1, choices=SEX_CHOICES)
     birthday = models.DateField(verbose_name='생년월일')
     student_id = models.CharField(verbose_name='학번', max_length=15)
 
